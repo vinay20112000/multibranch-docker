@@ -12,7 +12,7 @@ pipeline {
                 sh 'docker tag image1 vinay20112000/paytm:bank'
             }
         }
-        stage ("Push") {
+        stage ('Push') {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'dockerhub') {
@@ -21,7 +21,7 @@ pipeline {
                 }
             }
         }
-        stage ("Deploy") {
+        stage ('Deploy') {
             steps {
                 sh 'docker run -itd --name bank-app -p 1111:80 vinay20112000/paytm:bank'
             }
